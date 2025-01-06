@@ -3,57 +3,5 @@
   
   
   
-  <entry>
-    <title>记录蠢事</title>
-    <link href="/2025/01/06/%E8%AE%B0%E5%BD%95%E8%A0%A2%E4%BA%8B%E4%B8%89%E5%9B%9B%E6%A1%A9/"/>
-    <url>/2025/01/06/%E8%AE%B0%E5%BD%95%E8%A0%A2%E4%BA%8B%E4%B8%89%E5%9B%9B%E6%A1%A9/</url>
-    
-    <content type="html"><![CDATA[<h1 id="记录蠢事三四桩"><a href="#记录蠢事三四桩" class="headerlink" title="记录蠢事三四桩"></a>记录蠢事三四桩</h1><p><em><strong>1</strong></em></p><p>做ctf题的时候，terraform输出了key id和key，其中id是直接明文输出的，而key的值使用“<sensitive>”做了一个屏蔽，有人竟然把“sensitive”当成了密钥的值往配置文件里面填，因此卡了好久。</p><p><em><strong>2</strong></em></p><p>还是做ctf题的时候，还是进行profile配置，需要先assume一个role，题目中给出了需要配置的内容，其中有一行是“role_arn &#x3D; arn:aws:iam::&#x3D;&#x3D;ACCOUNT_ID&#x3D;&#x3D;:role&#x2F;Ertz”，有人蠢到看都不看直接往配置文件里复制粘贴啊，结果一直提示没有权限，因此浪费了大半天时间。</p><p>蠢到批爆</p><p>上面这两件事在没解决的时候还想着去discord问问作者，幸亏没去丢人现眼。</p><p><em><strong>3</strong></em></p><p>配置wsl里面的Jupyter notebook，安装完了运行不跳浏览器，也不输出访问链接。好嘛一顿查，一查一两个小时，卸载重装，环境都删了重新弄。结果最后是有人无视jupyter notebook提出的警告，说不要建议root用户运行。一直装作看不见，那就一直卡在这儿吧：）</p><p><em><strong>4</strong></em></p><p>寻找shelby count的供电供水数据集，浪费两天时间也没找到，最后放弃了到incore平台上打算先学学仿真怎么用最后找到了数据集。算了这领域咱也不熟悉，一下两下找不到也正常。有人大放厥词，写这论文的是sb——反转了，说这话的是sb。</p><p>ai，怎么有人这么蠢，怎么有人这么菜，怎么有人不长眼啊。</p><p><img src="/../posts_img/%E8%AE%B0%E5%BD%95%E8%A0%A2%E4%BA%8B%E4%B8%89%E5%9B%9B%E6%A1%A9.assets/%252Fi-1736173053429-3.jpg"></p><p>吐了，好恶心。</p><p>真的好恶心…</p><p>ai woc 怎么这么恶心啊</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>test pic in md</title>
-    <link href="/2025/01/03/test%20pic%20in%20md/"/>
-    <url>/2025/01/03/test%20pic%20in%20md/</url>
-    
-    <content type="html"><![CDATA[<h1 id="test-pic-in-md"><a href="#test-pic-in-md" class="headerlink" title="test pic in md"></a>test pic in md</h1><p><img src="/../posts_img/test%20pic%20in%20md.assets/image-20250103163943065.png" alt="image-20250103163943065"></p><p><img src="/../posts_img/test%20pic%20in%20md.assets/image-20250103164001969.png" alt="image-20250103164001969"></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>aws平台访问控制提权</title>
-    <link href="/2025/01/03/aws%E5%B9%B3%E5%8F%B0%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%8F%90%E6%9D%83%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/"/>
-    <url>/2025/01/03/aws%E5%B9%B3%E5%8F%B0%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%8F%90%E6%9D%83%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/</url>
-    
-    <content type="html"><![CDATA[<h1 id="aws平台访问控制提权学习项目记录"><a href="#aws平台访问控制提权学习项目记录" class="headerlink" title="aws平台访问控制提权学习项目记录"></a>aws平台访问控制提权学习项目记录</h1><h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p>git项目的链接是<a href="https://github.com/BishopFox/cloudfoxable">GitHub - BishopFox&#x2F;cloudfoxable: Create your own vulnerable by design AWS penetration testing playground</a></p><p>平台的链接是<a href="https://cloudfoxable.bishopfox.com/">https://cloudfoxable.bishopfox.com/</a></p><p>作者打造了一个ctf式的学习平台，使用terraform在aws平台上部署有具有提权漏洞的权限配置、云平台资源。这个项目是由<a href="https://github.com/BishopFox/iam-vulnerable">GitHub - BishopFox&#x2F;iam-vulnerable: Use Terraform to create your own vulnerable by design AWS IAM privilege escalation playground.</a>改编而来，原本打算学习后者，学习过程中发现作者搭建了新平台，所以转而使用新的平台。</p><p>第一个challenge就是要搭建学习平台。提供的账户如下：</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-18-35-06-image.png"></p><p>首先要有一个AWS账号作为根账户，之后我们需要一个具有管理权限的非根账户，并把非根账户凭据保存到Aws cli的配置文件中，以供terraform调用aws cli。</p><p>所以在创建根账户后，进入iam identity center，配置相应的用户、用户组、策略集。这里的策略集是平台预设的策略集adminaccess，之后将用户添加到用户组中，最后将使用根账户将策略集绑定到用户组中，这样就获得了一个具有adminaccess的非根账户。</p><p>非根账户的创建时会要求填写邮箱，邮箱会收到加入邀请和access portal，在邀请中填写密码，并通过access portal访问账户的凭据和aws console。</p><p>在安装了awscli后，到C:\Users\x.aws中创建config和credentials文件（也可以通过aws config命令来创建），还需要配置两个环境变量，<mark>安装时自动设置的路径有问题，总之我是需要自己重新设置的</mark></p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-18-48-03-image.png">将用户凭据填入，执行命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">aws sts get-caller-indentity<br></code></pre></td></tr></table></figure><p>看能否正常输出，正常输出则配置成功。配置成功后就可以使用这个非根账户的凭据，让terraform执行aws命令了。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">terraform init<br>terraform apply<br></code></pre></td></tr></table></figure><p>要清除部署的资源可以执行</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">terraform destroy<br></code></pre></td></tr></table></figure><p>正常情况下会自动化清除掉自动部署的资源。</p><p>执行完apply后，aws平台上会多出来一些策略、角色、用户等</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-18-54-42-image.png"></p><p>并且命令行会输出关于下一步的内容</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-18-56-12-image.png"></p><p>给出了使用非根账户部署的账户ctf-starting-user的key id以及access key，<mark>注意这里的key被terraform自动屏蔽了，需要使用命令将密钥重新输出</mark></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">terraform output -raw CTF_Start_User_Secret_Access_Key<br></code></pre></td></tr></table></figure><p>然后到credential中添加key id 和  key</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-19-01-18-image.png"></p><p>然后执行提示中给出的命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">aws sts get-caller-identity --profile cloudfoxable<br></code></pre></td></tr></table></figure><p>即可得到</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-19-03-14-image.png"></p><p>证明正确配置了ctf-starting-user的用户凭据。</p><p>前面提示的结尾有flag，提交即可。</p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-19-07-19-image.png"></p><p><mark>补充知识点：</mark></p><p><img src="C:\Users\x\AppData\Roaming\marktext\images\2024-12-31-19-10-19-image.png"></p><p><mark>总之这里的ctf-starting-user不需要session token。</mark></p><p>FLAG{ItsASecret::IsASecretASecretIfTooManyPeopleHaveAccessToIt?}</p><p>aws –profile cloudfoxable –region us-west-2 ssm get-parameter –with-decryption –name &#x2F;cloudfoxable&#x2F;flag&#x2F;its-a-secret</p><p>cloudfox aws -p cloudfoxable secrets -v2</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2025/01/03/hello-world/"/>
-    <url>/2025/01/03/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
   
 </search>
